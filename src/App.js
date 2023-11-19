@@ -1,32 +1,17 @@
-import React, { useState, useEffect } from "react";
-import Axios from "axios";
-import NavBar from "./components/NavBar";
-import Banner from "./components/Banner";
-import BestSeller from "./components/BestSeller";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import About from "./pages/About";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await Axios.get("https://fakestoreapi.com/products");
-        setProducts(response.data);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
-
   return (
-    <div className="App">
-      <NavBar />
-      <Banner />
-      <BestSeller products={products} />
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/shop" element={<Shop />} />
+        <Route exact path="/about" element={<About />} />
+      </Routes>
+    </Router>
   );
 }
 

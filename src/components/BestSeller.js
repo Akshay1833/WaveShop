@@ -19,7 +19,7 @@ const BestSeller = ({ products }) => {
       </div>
 
       {/* PRODUCTS */}
-      <div className="grid grid-cols-2 mx-10 md:grid-cols-3 md:ml-20 lg:grid-cols-4 lg:ml-36">
+      <div className="grid grid-cols-2 mx-10 md:grid-cols-2 md:ml-32 lg:grid-cols-4 lg:ml-36">
         {products
           .slice(0, 4)
           .map(({ id, title, price, description, category, image }) => (
